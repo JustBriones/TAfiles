@@ -16,12 +16,13 @@ function startGame () {
   randomWord = wordArray[Math.floor(Math.random() * wordArray.length)];
   splitWord.push(randomWord.split(""));
   numBlanks = randomWord.length;
-
   //populate blanks and successes with right num of blanksAndSuccess
   for (var i=0; i < numBlanks; i++) {
-    blanksAndSuccesses.push("_ ");
+    blanksAndSuccess.push("_ ");
   }
-
+  //Change HTML to reflect round conditions
+  document.getElementById("wordToGuess").innerHTML = blanksAndSuccess.join(" ");
+  document.getElementById('guessesLeft').innerHTML = guessesLeft;
   //reset
   guessesLeft = 9;
   wrongLetters = [];
